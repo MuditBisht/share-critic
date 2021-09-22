@@ -5,6 +5,8 @@ files:
    destination: /home/ubuntu/share-critic
    runas: root
 hooks:
+  BeforeInstall:
+    - location: /scripts/before_install
   AfterInstall:
    - location: scripts/install_app_dependencies
      timeout: 300
