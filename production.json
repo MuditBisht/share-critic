@@ -1,6 +1,6 @@
 [
     {
-      "name": "casino-prod",
+      "name": "share-critic-prod",
       "script": "build/index.js",
       "exec_mode": "cluster",
       "instances": 2,
