@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /home/ubuntu
-npm run stop:production
+pm2 delete production.json
 rm -rf share-critic
