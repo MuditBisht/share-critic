@@ -1,4 +1,3 @@
 #!/bin/bash
 cd /home/ubuntu/share-critic
-ls
 npm install --production
