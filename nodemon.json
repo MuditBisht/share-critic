@@ -3,5 +3,6 @@
     "ignore": [
         ".git", "node_modules"
     ],
-    "watch": ["src/**/*.ts"]
+    "watch": ["src/**/*", "static/**/*"],
+    "ext": "ts,html,css,js"
 }

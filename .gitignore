@@ -10,7 +10,7 @@ build
 package-lock.json
 config.env
 .sqlite
-
+.tmp
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 

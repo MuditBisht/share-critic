@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
 
 const TABLE_NAME = "feedback01";
 const db = new sqlite3.Database(path.join(BASE_FOLDER, ".sqlite"));
-db.run(`CREATE TABLE IF NOT EXISTS ${TABLE_NAME} (id TEXT PRIMARY KEY, feedback TEXT, createdAt TEXT);`);
+db.run(`CREATE TABLE IF NOT EXISTS ${TABLE_NAME} (id TEXT PRIMARY KEY, feedback TEXT, createdAt INT);`);
 
 db.on("close", ()=>{
     console.log("DB closed");
@@ -32,7 +32,7 @@ app.get("/", (req, res)=>{
 app.post("/", (req, res)=>{
     const { feedback=null } = req.body;
     db.serialize(()=>{
-        const query = `INSERT INTO ${TABLE_NAME} VALUES ("${v4()}", "${feedback}", "${new Date()}");`;
+        const query = `INSERT INTO ${TABLE_NAME} VALUES ("${v4()}", "${feedback}", "${Date.now()}");`;
         console.log("Query: ", query);
         db.run(query,
         (error: Error)=>{
@@ -54,7 +54,7 @@ app.post("/", (req, res)=>{
 
 app.get("/all-feedbacks", (req, res) => {
     db.serialize(()=> {
-        db.all(`SELECT * FROM ${TABLE_NAME};`,
+        db.all(`SELECT * FROM ${TABLE_NAME} ORDER BY createdAt DESC;`,
             (error: Error, rows: any[])=>{
                 if(error){
                     res.send(`
