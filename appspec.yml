@@ -3,6 +3,7 @@ os: linux
 files:
  - source: .
    destination: /home/ubuntu/share-critic
+   runas: root
 hooks:
   AfterInstall:
    - location: scripts/install_app_dependencies
