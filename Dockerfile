@@ -15,5 +15,6 @@ COPY static /static
 RUN npm install --omit=dev
 COPY --from=0 /usr/build .
 ENV PORT=3000
+ENV NODE_ENV=PRODUCTION
 EXPOSE 3000
 CMD [ "node", "index.js" ]
