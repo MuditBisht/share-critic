@@ -1,4 +1,0 @@
-#!/bin/bash
-cd /home/ubuntu/share-critic
-npm install
-npm run build

@@ -1,4 +1,0 @@
-#!/bin/bash
-cd /home/ubuntu
-pm2 delete production.json
-rm -rf share-critic
