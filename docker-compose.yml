@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    tty: true
+    ports:
+      - "3000:80"
+    dns:
+      - 8.8.8.8
+      - 4.4.4.4
+      - 192.168.9.45
+    network_mode: "bridge"
