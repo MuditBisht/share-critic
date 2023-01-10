@@ -54,7 +54,7 @@ app.post("/", (req, res)=>{
 
 app.get("/all-feedbacks", (req, res) => {
     db.serialize(()=> {
-        db.all(`SELECT * FROM ${TABLE_NAME} where feedback not null ORDER BY createdAt DESC;`,
+        db.all(`SELECT * FROM ${TABLE_NAME} where feedback not null and feedback!='null' ORDER BY createdAt DESC;`,
             (error: Error, rows: any[])=>{
                 if(error){
                     res.send(`
